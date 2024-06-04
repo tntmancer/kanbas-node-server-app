@@ -1,7 +1,8 @@
-import express from 'express'
-import Hello from "./Hello.js"
+import express from "express";
 import Lab5 from "./Lab5/index.js";
-const app = express()
-Lab5(app)
-Hello(app)
-app.listen(process.env.PORT || 4000)
+import cors from "cors";
+const app = express();
+app.use(cors());                    // make sure cors is used right after creating the app
+app.use(express.json());
+Lab5(app);                          // express instance
+app.listen(process.env.PORT || 4000);
